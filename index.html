@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Note</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="sidebar">
+        <div class="brand-logo">Note</div>
+        <div class="add-dots">
+          <button type="button" class="btn btn-plus">
+            <svg class="icon">
+              <use xlink:href="./assets/sprite.svg#add-outline"></use>
+            </svg>
+          </button>
+          <ul class="dots">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="top-bar">
+          <button type="button">NOTE BOOKS</button>
+          <form action="">
+            <input type="text" name="note" placeholder="Search" id="note" />
+            <label for="note">
+              <svg class="icon">
+                <use xlink:href="./assets/sprite.svg#search-outline"></use>
+              </svg>
+            </label>
+          </form>
+          <button class="btn" type="button">
+            <svg class="icon">
+              <use xlink:href="./assets/sprite.svg#star-outline"></use>
+            </svg>
+          </button>
+        </div>
+
+        <div class="notes">
+          <div class="note">
+            <h2>title</h2>
+            <p>description</p>
+            <p>date</p>
+
+            <button class="btn">
+              <svg class="icon">
+                <use xlink:href="./assets/sprite.svg#star-outline"></use>
+              </svg>
+            </button>
+
+            <div class="sub-main">
+              <button class="btn">
+                <svg class="icon">
+                  <use xlink:href="./assets/sprite.svg#ellipsis-vertical"></use>
+                </svg>
+              </button>
+
+              <button class="btn">
+                <svg class="icon">
+                  <use xlink:href="./assets/sprite.svg#trash-outline"></use>
+                </svg>
+              </button>
+            </div>
+
+            <button class="btn">
+              <svg class="icon">
+                <use xlink:href="./assets/sprite.svg#expand-outline"></use>
+              </svg>
+            </button>
+            <button class="btn">
+              <svg class="icon">
+                <use xlink:href="./assets/sprite.svg#create-outline"></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
