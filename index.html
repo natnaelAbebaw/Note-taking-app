@@ -11,8 +11,11 @@
       <div class="sidebar">
         <div class="brand-logo">Note</div>
         <div class="add-dots">
-          <button type="button" class="btn btn-plus">
-            <svg class="icon">
+          <button
+            type="button"
+            class="btn btn-plus btn--circle btn--circle--big"
+          >
+            <svg class="icon icon-big">
               <use xlink:href="./assets/sprite.svg#add-outline"></use>
             </svg>
           </button>
@@ -37,7 +40,7 @@
               </svg>
             </label>
           </form>
-          <button class="btn" type="button">
+          <button class="btn btn--circle btn--circle--sm" type="button">
             <svg class="icon">
               <use xlink:href="./assets/sprite.svg#star-outline"></use>
             </svg>
@@ -46,40 +49,49 @@
 
         <div class="notes">
           <div class="note">
-            <h2>title</h2>
-            <p>description</p>
-            <p>date</p>
+            <textarea>Title</textarea>
+            <!-- <h2>Title</h2> -->
+            <textarea>
+Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              Veritatis porro pariatur tempora nihil quo.
+            </textarea>
+            <p class="date">May 22,2023</p>
 
-            <button class="btn">
-              <svg class="icon">
-                <use xlink:href="./assets/sprite.svg#star-outline"></use>
-              </svg>
-            </button>
-
-            <div class="sub-main">
-              <button class="btn">
-                <svg class="icon">
-                  <use xlink:href="./assets/sprite.svg#ellipsis-vertical"></use>
+            <div class="btn-top">
+              <button class="btn btn--circle btn--circle--sm">
+                <svg class="icon icon-sm">
+                  <use xlink:href="./assets/sprite.svg#star-outline"></use>
                 </svg>
               </button>
 
-              <button class="btn">
+              <span class="sub-main">
+                <button class="btn">
+                  <svg class="icon">
+                    <use
+                      xlink:href="./assets/sprite.svg#ellipsis-vertical"
+                    ></use>
+                  </svg>
+                </button>
+                <button class="btn btn--circle btn--circle--sm hidden">
+                  <svg class="icon">
+                    <use xlink:href="./assets/sprite.svg#trash-outline"></use>
+                  </svg>
+                </button>
+              </span>
+            </div>
+
+            <div class="btn-bottom">
+              <button class="btn btn--circle btn--circle--sm">
                 <svg class="icon">
-                  <use xlink:href="./assets/sprite.svg#trash-outline"></use>
+                  <use xlink:href="./assets/sprite.svg#expand-outline"></use>
+                </svg>
+              </button>
+              <button class="btn btn--circle btn--circle--sm">
+                <svg class="icon">
+                  <use xlink:href="./assets/sprite.svg#create-outline"></use>
                 </svg>
               </button>
             </div>
-
-            <button class="btn">
-              <svg class="icon">
-                <use xlink:href="./assets/sprite.svg#expand-outline"></use>
-              </svg>
-            </button>
-            <button class="btn">
-              <svg class="icon">
-                <use xlink:href="./assets/sprite.svg#create-outline"></use>
-              </svg>
-            </button>
           </div>
         </div>
       </div>

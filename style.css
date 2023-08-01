@@ -62,18 +62,35 @@ body {
 }
 
 .icon {
-  height: 2.5rem;
-  width: 2.5rem;
+  height: 1.7rem;
+  width: 1.7rem;
   color: var(--color-white);
   fill: var(--color-white);
 }
 
+.icon-big {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
 .btn {
-  background-color: var(--color-primary);
   border: none;
+  background: none;
+}
+
+.btn--circle {
+  border-radius: 20rem;
+  background-color: var(--color-primary);
+}
+
+.btn--circle--sm {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.btn--circle--big {
   height: 4rem;
   width: 4rem;
-  border-radius: 20rem;
 }
 
 .sidebar {
@@ -193,6 +210,59 @@ body {
   padding: 3rem;
 }
 .note {
+  --pad-size: 4rem;
+  --btn-loc: calc(var(--pad-size) - 3rem);
+  padding: var(--pad-size) 2rem;
   background-color: var(--custom-color--1);
   width: 30%;
+  height: 23rem;
+  border-radius: 2rem;
+  position: relative;
+}
+
+.note textarea {
+  width: 100%;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+.note textarea:first-child {
+  height: 4rem;
+  font-size: var(--fs-700);
+  border-bottom: 1px solid var(--color-primary-light);
+  margin-bottom: 1.5rem;
+}
+
+.note textarea:first-child {
+}
+
+/* .note textarea:focus {
+  outline: none;
+} */
+
+:is(.btn-top, .btn-bottom) {
+  position: absolute;
+  right: var(--btn-loc);
+}
+.btn-top {
+  top: var(--btn-loc);
+}
+
+.btn-bottom {
+  bottom: var(--btn-loc);
+}
+
+.date {
+  position: absolute;
+  left: 2rem;
+  bottom: var(--btn-loc);
+}
+
+.hidden {
+  display: none;
+}
+
+.sub-main .icon:first-of-type {
+  fill: var(--color-primary);
 }
