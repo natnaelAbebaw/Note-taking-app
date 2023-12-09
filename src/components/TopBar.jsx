@@ -42,9 +42,11 @@ export default function TopBar({ onShowNotebookList }) {
         </label>
       </form>
       <button
-        className="btn btn--circle btn--circle--big"
+        className={`btn btn--circle btn--circle--big ${
+          status === "favorite" ? "favorite-active" : ""
+        }`}
         type="button"
-        onClick={()=>dispatch({ type: "note/favorite-clicked" })}
+        onClick={() => dispatch({ type: "note/favorite-clicked" })}
       >
         <svg className="icon icon-big">
           <use href={`${icons}#star-outline`}></use>

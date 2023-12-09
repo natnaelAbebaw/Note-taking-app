@@ -7,8 +7,14 @@ import { useApp } from "../contexts/AppContext";
 export default function Note({ note }) {
   const [title, setTitle] = useState(note.title);
   const [content, setContent] = useState(note.content);
-  const { mode, currentNotebook, zoomedNoteID, editedNoteID, dispatch } =
-    useApp();
+  const {
+    status,
+    mode,
+    currentNotebook,
+    zoomedNoteID,
+    editedNoteID,
+    dispatch,
+  } = useApp();
   const textareaEl = useRef(null);
   useEffect(
     function () {
@@ -53,6 +59,8 @@ export default function Note({ note }) {
   }
 
   function handleFavoriteNote() {
+    // status === "favorite" && dispatch({ type: "note/favorite-filter" });
+
     mode === "notebook-mode"
       ? dispatch({
           type: "notebook/note/favorite",

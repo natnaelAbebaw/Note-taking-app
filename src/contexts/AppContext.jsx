@@ -53,9 +53,12 @@ function reducer(state, action) {
       return {
         ...state,
         notes: state.notes.filter((note) => note.id !== action.payload),
-        searchedNotes: state.searchedNotes.filter(
-          (note) => note.id !== action.payload
-        ),
+        searchedNotes:
+          state.status === "searching" &&
+          state.searchedNotes.filter((note) => note.id !== action.payload),
+        favoriteNotes:
+          state.status === "favorite" &&
+          state.favoriteNotes.filter((note) => note.id !== action.payload),
       };
     case "note/favorite":
       return {
@@ -65,11 +68,20 @@ function reducer(state, action) {
             ? { ...note, favorite: !note.favorite }
             : note
         ),
-        searchedNotes: state.searchedNotes.map((note) =>
-          note.id === action.payload
-            ? { ...note, favorite: !note.favorite }
-            : note
-        ),
+        searchedNotes:
+          state.status === "searching" &&
+          state.searchedNotes.map((note) =>
+            note.id === action.payload
+              ? { ...note, favorite: !note.favorite }
+              : note
+          ),
+        favoriteNotes:
+          state.status === "favorite" &&
+          state.favoriteNotes.map((note) =>
+            note.id === action.payload
+              ? { ...note, favorite: !note.favorite }
+              : note
+          ),
       };
     case "note/zoomed":
       return {
@@ -83,6 +95,9 @@ function reducer(state, action) {
         editedNoteID:
           state.editedNoteID === action.payload ? null : action.payload,
       };
+    case "status/active":
+      return { ...state, status: "active" };
+
     case "notebook/active":
       return { ...state, mode: "notebook-mode" };
 
@@ -106,12 +121,6 @@ function reducer(state, action) {
         currentNotebook: action.payload,
         status: "active",
       };
-    case "status/active":
-      return {
-        ...state,
-        status: "active",
-      };
-
     case "notebook/deleted":
       return {
         ...state,
@@ -170,6 +179,11 @@ function reducer(state, action) {
           state.searchedNotes.filter(
             (note) => note.id !== action.payload.noteId
           ),
+        favoriteNotes:
+          state.status === "favorite" &&
+          state.favoriteNotes.filter(
+            (note) => note.id !== action.payload.noteId
+          ),
       };
     case "notebook/note/updated":
       const updatedNotes = state.currentNotebook.notes.map((note) =>
@@ -220,14 +234,26 @@ function reducer(state, action) {
           ...state.currentNotebook,
           notes: notesOnFavorite,
         },
-        searchedNotes: state.searchedNotes.map((note) =>
-          note.id === action.payload.noteId
-            ? {
-                ...note,
-                favorite: !note.favorite,
-              }
-            : note
-        ),
+        searchedNotes:
+          state.status === "searching" &&
+          state.searchedNotes.map((note) =>
+            note.id === action.payload.noteId
+              ? {
+                  ...note,
+                  favorite: !note.favorite,
+                }
+              : note
+          ),
+        favoriteNotes:
+          state.status === "favorite" &&
+          state.favoriteNotes.map((note) =>
+            note.id === action.payload.noteId
+              ? {
+                  ...note,
+                  favorite: !note.favorite,
+                }
+              : note
+          ),
       };
 
     case "note/searched":
@@ -261,6 +287,21 @@ function reducer(state, action) {
                 ),
               ]
             : [],
+      };
+
+    case "note/favorite-filter":
+      return {
+        ...state,
+        favoriteNotes: [
+          ...state.notes.filter((note) => note.favorite === true),
+          ...state.notebooks.reduce(
+            (acc, notebook) => [
+              ...acc,
+              ...notebook.notes.filter((note) => note.favorite === true),
+            ],
+            []
+          ),
+        ],
       };
     default:
       throw new Error("Unkown action");

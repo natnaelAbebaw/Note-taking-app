@@ -24,9 +24,11 @@ export default function Notes() {
   }
   return (
     <div className="notes">
-      <TopNotesBar>
-        <AddBotton vertical={false} onCreate={onCreate} />
-      </TopNotesBar>
+      {status !== "favorite" && (
+        <TopNotesBar>
+          <AddBotton vertical={false} onCreate={onCreate} />
+        </TopNotesBar>
+      )}
 
       {status === "searching" && (
         <div className="search-stat">
@@ -38,6 +40,9 @@ export default function Notes() {
           </button>
         </div>
       )}
+
+      {status === "favorite" && <h2 className="favorite">Favorite notes: )</h2>}
+
       <ul>
         {status === "active" &&
           mode === "note-mode" &&

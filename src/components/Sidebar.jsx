@@ -8,6 +8,7 @@ export default function SideBar({ onAddNotebookForm, onSetShowNotebookList }) {
     if (mode === "notebook-mode") {
       onAddNotebookForm(color);
       onSetShowNotebookList(true);
+      dispatch({ type: "status/active" });
     } else {
       const newNote = new NOTE(crypto.randomUUID(), "", "", Date.now(), color);
       dispatch({ type: "note/created", payload: newNote });

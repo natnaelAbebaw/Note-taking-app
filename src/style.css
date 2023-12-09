@@ -398,10 +398,21 @@ ul.dots-deactive li:nth-child(1) {
   background: none;
   border: 2px solid var(--custom-color--3);
   cursor: pointer;
+  transition: background-color 0.4s;
 }
 
 .top-bar button:last-child svg {
   color: var(--custom-color--3);
+  transition: color 0.4s;
+}
+
+.favorite-active,
+.top-bar button:last-child:hover {
+  background-color: var(--custom-color--3) !important;
+}
+.favorite-active svg,
+.top-bar button:last-child:hover svg {
+  color: var(--color-white) !important;
 }
 
 .top-bar form {
@@ -707,6 +718,10 @@ ul.dots-deactive li:nth-child(1) {
 .notes .search-stat button:active {
   transform: scale(0.9);
   cursor: pointer;
+}
+
+.notes .favorite:first-child {
+  margin: 0rem 3rem 1rem;
 }
 
 .instruction {
