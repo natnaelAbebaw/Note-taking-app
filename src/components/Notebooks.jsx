@@ -29,8 +29,8 @@ export default function NoteBooks({
             />
           )}
           <ul>
-            {notebooks.length !== 0 ? (
-              notebooks.map((notebook) => (
+            {notebooks?.length !== 0 ? (
+              notebooks?.map((notebook) => (
                 <NoteBook key={notebook.id} notebook={notebook} />
               ))
             ) : (

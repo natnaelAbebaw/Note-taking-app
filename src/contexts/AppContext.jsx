@@ -3,8 +3,8 @@ import { createContext, useContext, useEffect, useReducer } from "react";
 const AppContext = createContext();
 
 const initialState = {
-  notes: JSON.parse(localStorage.getItem("notes")),
-  notebooks: JSON.parse(localStorage.getItem("notebooks")),
+  notes: JSON.parse(localStorage.getItem("notes")) || [],
+  notebooks: JSON.parse(localStorage.getItem("notebooks")) || [],
   currentNotebook: null,
   mode: "note-mode",
   status: "active",

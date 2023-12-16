@@ -46,7 +46,7 @@ export default function Notes() {
       <ul>
         {status === "active" &&
           mode === "note-mode" &&
-          notes.map((note) => <Note key={note.id} note={note} />)}
+          notes?.map((note) => <Note key={note.id} note={note} />)}
         {status === "active" && mode === "notebook-mode" && (
           <>
             {currentNotebook ? (
